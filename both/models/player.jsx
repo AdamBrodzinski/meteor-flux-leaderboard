@@ -1,7 +1,10 @@
-// note, insecure and autopublish are turned on for this demo
-// in a production app you'll want to setup these.
+// note, insecure is turned on for this demo in a production app you'll
+// want to remove this and setup allow/deny rules for security.
 
-// setup a mongo collection for both server and client Minimogo cache
+// Set up a collection to contain player information. On the server,
+// it is backed by a MongoDB collection named "players". On the client
+// it's a local cache that can be queried with MongoDB syntax. You have
+// to publish data and subscribe to pull it into this cache
 Players = new Mongo.Collection("players");
 
 Player = {
