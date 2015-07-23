@@ -1,6 +1,7 @@
 PlayerList = React.createClass({
   propTypes: {
-    players: React.PropTypes.array.isRequired
+    players: React.PropTypes.array.isRequired,
+    selectedId: React.PropTypes.string.isRequired
   },
 
   render() {

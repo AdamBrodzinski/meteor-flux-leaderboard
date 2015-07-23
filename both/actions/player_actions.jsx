@@ -8,9 +8,6 @@ class PlayerActions {
 
   selectPlayer(id) {
     console.log('[PlayerActions] selectPlayer');
-    if (Meteor.isClient) {
-      Session.set("selectedPlayer", id); // XXX remove
-    }
     return id;
   }
 }

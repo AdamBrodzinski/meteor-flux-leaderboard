@@ -8,7 +8,8 @@ class PlayerStore {
     });
 
     this.state = {
-      players: []
+      players: [],
+      selectedId: ''
     };
   }
 
