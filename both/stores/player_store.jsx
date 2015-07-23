@@ -6,6 +6,7 @@ class PlayerStore {
     this.bindListeners({
       onSelectPlayer: PlayerActions.selectPlayer,
       onIncrementScore: PlayerActions.incrementScore,
+      onPlayersChanged: CollectionActions.playersChanged,
     });
 
     this.state = {
@@ -14,8 +15,7 @@ class PlayerStore {
     };
 
     if (Meteor.isClient) {
-      Meteor.subscribe('players');
-      setTimeout(this._watchForPlayerChanges.bind(this), 0);
+      Meteor.subscribe('players'); // this could go in the AppContainer instead
     }
   }
 
@@ -28,13 +28,9 @@ class PlayerStore {
     console.log('[PlayerStore] selectPlayer');
   }
 
-  _watchForPlayerChanges() {
-    // tracker will observe collection for changes and re-run on change
-    Tracker.autorun(() => {
-      var newPlayerData = Player.findLeaders();
-      this.setState({ players: newPlayerData });
-      console.log('[PlayerStore] data refreshed');
-    });
+  onPlayersChanged(playerDocs) {
+    this.setState({players: playerDocs});
+    console.log('[PlayerStore] updating state');
   }
 }
 

@@ -2,12 +2,12 @@
 
 class PlayerActions {
   incrementScore(playerId, amount) {
-    console.log('[PlayerActions] incrementScore');
+    console.log('\n[PlayerActions] incrementScore');
     return {playerId, amount};
   }
 
   selectPlayer(id) {
-    console.log('[PlayerActions] selectPlayer');
+    console.log('\n[PlayerActions] selectPlayer');
     return id;
   }
 }
