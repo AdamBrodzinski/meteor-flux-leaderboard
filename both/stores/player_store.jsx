@@ -14,10 +14,10 @@ class PlayerStore {
       selectedId: ''
     };
 
-    // temp fetch on start
-    Meteor.setTimeout(() => {
-      PlayerActions.refreshPlayersCollection();
-    }, 800);
+    if (Meteor.isClient) {
+      Meteor.subscribe('players');
+      setTimeout(this._watchForPlayerChanges.bind(this), 0);
+    }
   }
 
   onIncrementScore(opts) {
@@ -29,12 +29,13 @@ class PlayerStore {
     console.log('[PlayerStore] selectPlayer');
   }
 
-  // fetch from Minimongo cache and emit state change
-  onRefreshPlayersCollection() {
-    this.setState({
-      players: Player.findLeaders()
+  _watchForPlayerChanges() {
+    // tracker will observe collection for changes and re-run on change
+    Tracker.autorun(() => {
+      var newPlayerData = Player.findLeaders();
+      this.setState({ players: newPlayerData });
+      console.log('[PlayerStore] data refreshed');
     });
-    console.log('[PlayerStore] refresh');
   }
 }
 
