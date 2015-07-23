@@ -7,7 +7,9 @@ class PlayerStore {
       onIncrementScore: PlayerActions.incrementScore,
     });
 
-    this.state = {};
+    this.state = {
+      players: []
+    };
   }
 
   onIncrementScore(opts) {

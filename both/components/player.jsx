@@ -1,23 +1,6 @@
 /*global PlayerStore */
 
 PlayerList = React.createClass({
-  // you can also use mixins to eliminate this boilerplate
-  getInitialState() {
-    return PlayerStore.getState();
-  },
-
-  componentDidMount() {
-    PlayerStore.listen(this.onChange);
-  },
-
-  componentWillUnmount() {
-    PlayerStore.unlisten(this.onChange);
-  },
-
-  onChange(state) {
-    this.setState(state);
-  },
-
   propTypes: {
     players: React.PropTypes.array.isRequired
   },
