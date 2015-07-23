@@ -1,4 +1,4 @@
-Player = React.createClass({
+PlayerItem = React.createClass({
   handleClick() {
     var playerId = this.props.player._id;
     PlayerActions.selectPlayer(playerId);

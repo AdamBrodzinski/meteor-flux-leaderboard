@@ -10,7 +10,7 @@ PlayerList = React.createClass({
        {
          this.props.players.map((player) => {
            return (
-             <Player
+             <PlayerItem
                key={ player._id }
                selectedPlayerId={ this.props.selectedId }
                player={ player } />
