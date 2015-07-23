@@ -1,8 +1,24 @@
-// @jsx React.DOM
+/*global PlayerStore */
 
 PlayerList = React.createClass({
+  // you can also use mixins to eliminate this boilerplate
+  getInitialState() {
+    return PlayerStore.getState();
+  },
+
+  componentDidMount() {
+    PlayerStore.listen(this.onChange);
+  },
+
+  componentWillUnmount() {
+    PlayerStore.unlisten(this.onChange);
+  },
+
+  onChange(state) {
+    this.setState(state);
+  },
+
   propTypes: {
-    selectedPlayerId: React.PropTypes.string,
     players: React.PropTypes.array.isRequired
   },
 
@@ -14,7 +30,7 @@ PlayerList = React.createClass({
            return (
              <PlayerItem
                key={ player._id }
-               selectedPlayerId={ this.props.selectedPlayerId }
+               selectedPlayerId={ this.state.selectedId }
                player={ player } />
            );
          })
