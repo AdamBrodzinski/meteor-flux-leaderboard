@@ -38,6 +38,7 @@ mongo@1.1.0
 npm-container@1.0.0
 observe-sequence@1.0.6
 ordered-dict@1.0.3
+promise@0.4.1
 random@1.0.3
 react@0.1.0
 react-meteor-data@0.1.0
