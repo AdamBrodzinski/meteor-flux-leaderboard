@@ -15,6 +15,7 @@ class PlayerStore {
     };
 
     if (Meteor.isClient) {
+      console.log('[PlayerStore] subscribing to "players"');
       Meteor.subscribe('players'); // this could go in the AppContainer instead
     }
   }
@@ -29,7 +30,8 @@ class PlayerStore {
   }
 
   onPlayersChanged(playerDocs) {
-    this.setState({players: playerDocs});
+    // we could use `playerDocs` instead but it's not sorted
+    this.setState({ players: Player.findLeaders() });
     console.log('[PlayerStore] updating state');
   }
 }
