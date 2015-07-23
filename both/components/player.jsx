@@ -1,30 +1,4 @@
-/*global PlayerStore */
-
-PlayerList = React.createClass({
-  propTypes: {
-    players: React.PropTypes.array.isRequired
-  },
-
-  render() {
-    return (
-     <ul className="leaderboard">
-       {
-         this.props.players.map((player) => {
-           return (
-             <PlayerItem
-               key={ player._id }
-               selectedPlayerId={ this.state.selectedId }
-               player={ player } />
-           );
-         })
-       }
-     </ul>
-    );
-  }
-});
-
-
-PlayerItem = React.createClass({
+Player = React.createClass({
   handleClick() {
     var playerId = this.props.player._id;
     PlayerActions.selectPlayer(playerId);
