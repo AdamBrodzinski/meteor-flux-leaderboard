@@ -9,3 +9,8 @@ insecure
 meteor-platform
 react
 react-template-helper
+meteorhacks:npm
+
+
+npm-container
+cosmos:browserify
