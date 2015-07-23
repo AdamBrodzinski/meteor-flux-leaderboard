@@ -6,11 +6,10 @@ class PlayerStore {
     this.bindListeners({
       onSelectPlayer: PlayerActions.selectPlayer,
       onIncrementScore: PlayerActions.incrementScore,
-      onRefreshPlayersCollection: PlayerActions.refreshPlayersCollection,
     });
 
     this.state = {
-      players: [],
+      players: Player.findLeaders(),
       selectedId: ''
     };
 
