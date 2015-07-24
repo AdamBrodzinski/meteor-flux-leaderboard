@@ -1,9 +1,9 @@
 /*global alt, PlayerActions */
 
 class PlayerActions {
-  incrementScore(playerId, amount) {
-    console.log('\n[PlayerActions] incrementScore');
-    return {playerId, amount};
+  incrementScore(playerId) {
+    console.log('\n[PlayerActions] incrementScore', playerId);
+    return playerId;
   }
 
   selectPlayer(id) {

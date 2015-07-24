@@ -11,7 +11,8 @@ class PlayerStore {
 
     this.state = {
       players: Player.findLeaders(),
-      selectedId: ''
+      selectedId: '',
+      selectedPlayerName: ''
     };
 
     if (Meteor.isClient) {
@@ -20,12 +21,20 @@ class PlayerStore {
     }
   }
 
-  onIncrementScore(opts) {
+  onIncrementScore(docId) {
+    //Player.incrementScore() could use a fat model also
+    Players.update({_id: docId}, {$inc: {score: 5}});
+    // no setState required since tracker will fire a change
     console.log('[PlayerStore] incrementScore');
   }
 
-  onSelectPlayer(id) {
-    this.setState({selectedId: id});
+  onSelectPlayer(docId) {
+  var player = Players.findOne({_id: docId}) || {};
+
+    this.setState({
+      selectedId: docId,
+      selectedPlayerName: player.name
+    });
     console.log('[PlayerStore] selectPlayer');
   }
 

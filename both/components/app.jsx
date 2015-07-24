@@ -4,6 +4,7 @@ App = React.createClass({
   propTypes: {
     players: React.PropTypes.array,
     selectedId: React.PropTypes.string,
+    selectedName: React.PropTypes.string,
   },
 
   render() {
@@ -15,10 +16,10 @@ App = React.createClass({
         <div className="subtitle">Select a scientist to give them points</div>
 
         <div>
-          <PlayerList {...this.props} />
+          <PlayerList { ...this.props } />
         </div>
 
-        <SelectPlayer />
+        <SelectPlayer { ...this.props } />
       </div>
     );
   }
