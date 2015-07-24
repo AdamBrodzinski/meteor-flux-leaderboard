@@ -5,6 +5,15 @@ PlayerList = React.createClass({
   },
 
   render() {
+    if (!this.props.players.length) {
+      return (
+        <ul className="leaderboard">
+          <h2>Loading...</h2>
+          <h3>*Simulating* slow server to show optimistic UI</h3>
+        </ul>
+      );
+    }
+
     return (
      <ul className="leaderboard">
        {
