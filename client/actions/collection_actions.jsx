@@ -11,7 +11,6 @@ this.CollectionActions = alt.createActions(CollectionActions);
 
 // watch collections on Minimongo cache and
 Meteor.startup(() => {
-  if (Meteor.isServer) return; // don't watch on serverside render
 
   Tracker.autorun(computation => {
     var docs = Players.find({}).fetch();

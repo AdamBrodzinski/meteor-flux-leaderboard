@@ -15,10 +15,8 @@ class PlayerStore {
       selectedPlayerName: ''
     };
 
-    if (Meteor.isClient) {
-      console.log('[PlayerStore] subscribing to "players"');
-      Meteor.subscribe('players'); // this could go in the AppContainer instead
-    }
+    console.log('[PlayerStore] subscribing to "players"');
+    Meteor.subscribe('players'); // this could go in the AppContainer instead
   }
 
   onIncrementScore(docId) {
@@ -29,7 +27,7 @@ class PlayerStore {
   }
 
   onSelectPlayer(docId) {
-  var player = Players.findOne({_id: docId}) || {};
+    var player = Players.findOne({_id: docId}) || {};
 
     this.setState({
       selectedId: docId,

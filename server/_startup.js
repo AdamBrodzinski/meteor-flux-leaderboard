@@ -1,9 +1,6 @@
 /*global alt:true */
 console.log("Starting Leaderboard Server...");
 
-var Alt = Meteor.npmRequire('alt');
-alt = new Alt();
-
 // run fixtures if db is empty
 Meteor.startup(function () {
   if (Players.find().count() === 0) {
