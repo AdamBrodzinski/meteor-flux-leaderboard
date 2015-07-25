@@ -8,6 +8,7 @@ Flux Example with React &amp; Meteor
 - `cd meteor-flux-leaderboard`
 - `meteor`
 - Open your browser to localhost:3000
+- Checkout action/store logs in console after clicking about
 
 
 <br>
