@@ -31,10 +31,13 @@ Flux Example with React &amp; Meteor
 
 
 <br>
+### Todo 
 
-### Notes 
-
-- Serverside rendering branch started (shared but not rendering yet)
+- [X] Basic functinality
+- [ ] Handle hot code reload (snapshot and restore on reload)
+- [ ] Serverside rendering branch (started, shared files but no SSR)
+- [ ] Immutible stores for rendering performance
+- [ ] React Router using actions
 
 Key pieces are in CollectionActions/Store, Tracker watches for changes on the Minimongo clientside cache and emits a change event when data changes. This retains all the optimistic UI and realtime data capabilities that Meteor offers.
 
