@@ -8,6 +8,22 @@
 // to publish data and subscribe to pull it into this cache
 Players = new Mongo.Collection("players");
 
+
+if (Meteor.isClient) {
+  // watch collections on Minimongo cache and trigger action on change
+  Meteor.startup(() => {
+
+    Tracker.autorun(computation => {
+      var docs = Players.find({}).fetch();
+      if (computation.firstRun) return; // ignore first empty run
+      console.log('\n[Tracker] collection changed');
+      this.CollectionActions.playersChanged(docs);
+    });
+
+  });
+}
+
+
 Player = {
   create() {
   },

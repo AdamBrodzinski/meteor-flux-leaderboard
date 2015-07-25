@@ -1,22 +1,22 @@
-/*global alt, CollectionActions */
+// IMPORTANT, see both/models/player.jsx to see where this action
+// is being triggered on the collection data change
 
 class CollectionActions {
   playersChanged(docs) {
-    console.log('[CollectionActions] playersChanged', docs);
-    return docs;
+    console.log('[CollectionActions] PLAYERS_CHANGED', docs);
+    this.dispatch(docs);
   }
 }
 
 this.CollectionActions = alt.createActions(CollectionActions);
 
-// watch collections on Minimongo cache and
-Meteor.startup(() => {
 
-  Tracker.autorun(computation => {
-    var docs = Players.find({}).fetch();
-    if (computation.firstRun) return; // ignore first empty run
-    console.log('[Tracker] collection changed');
-    this.CollectionActions.playersChanged(docs);
-  });
-
-});
+// NOTE, if your actions are only passing data through (like above)
+// you can use a more terse action creator helper:
+//
+// var LocationActions = alt.generateActions(
+//    'updateLocation',
+//    'updateCity',
+//    'updateCountry'
+//  );
+//
