@@ -18,8 +18,13 @@ Flux Example with React &amp; Meteor
 - Easy microservice implementations via DDP
 - Modular, swap out any default Meteor components you wish
 
+<br>
+***Make sure to open the console to see the lifecycle***  
 
-![Example Photo](https://s3.amazonaws.com/f.cl.ly/items/3B180I3q0W132P0J1Z18/Screen%20Shot%202015-07-25%20at%2011.53.35%20AM.png)
+![logs](https://s3.amazonaws.com/f.cl.ly/items/42211v2N2K2Z0n0W0Z3o/logs.png)
+
+
+![Example Photo](https://s3.amazonaws.com/f.cl.ly/items/0Q181k182k0Z2C3g0Q04/screen2.png)
 
 
 ##### Full Readme coming soon! (See [this readme](https://github.com/AdamBrodzinski/react-ive-meteor) for an explanation of the Meteor parts)
