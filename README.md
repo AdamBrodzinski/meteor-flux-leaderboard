@@ -12,14 +12,13 @@ Flux Example with React &amp; Meteor
 
 *Plus*
 
+- Hot code reload
 - Universal JS shared on client and server (isomorphic)
 - Clean server-side code with fibers (soon with promise ES7 async/await)
 - Easy microservice implementations via DDP
 - Modular, swap out any default Meteor components you wish
 
 
-
-Hot code reload
 
 ##### Full Readme coming soon! (See [this readme](https://github.com/AdamBrodzinski/react-ive-meteor) for an explanation of the Meteor parts)
 
