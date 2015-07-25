@@ -19,6 +19,8 @@ Flux Example with React &amp; Meteor
 - Modular, swap out any default Meteor components you wish
 
 
+![Example Photo](https://s3.amazonaws.com/f.cl.ly/items/3B180I3q0W132P0J1Z18/Screen%20Shot%202015-07-25%20at%2011.53.35%20AM.png)
+
 
 ##### Full Readme coming soon! (See [this readme](https://github.com/AdamBrodzinski/react-ive-meteor) for an explanation of the Meteor parts)
 
