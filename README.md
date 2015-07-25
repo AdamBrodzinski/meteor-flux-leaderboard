@@ -1,6 +1,26 @@
 # meteor-flux-leaderboard
 Flux Example with React &amp; Meteor 
 
+***Get the benifits of Relay without the wait or complexity***
+
+- Automatic optimistic UI updates (latency compensation)
+- Real time database updates (like Uber's realtime driver location)
+- Mini-Mongo client cache (easy clientside querying)
+- Query based data subscriptions instead of REST (also API REST supported)
+- Data operations in flux are written synchronously because of the optimistic UI
+
+
+*Plus*
+
+- Universal JS shared on client and server (isomorphic)
+- Clean server-side code with fibers (soon with promise ES7 async/await)
+- Easy microservice implementations via DDP
+- Modular, swap out any default Meteor components you wish
+
+
+
+Hot code reload
+
 ##### Full Readme coming soon! (See [this readme](https://github.com/AdamBrodzinski/react-ive-meteor) for an explanation of the Meteor parts)
 
 ### Useage
