@@ -1,4 +1,5 @@
 {
   "externalify": "0.1.0",
-  "alt": "0.17.1"
+  "reflux": "0.2.11",
+  "reflux-state-mixin": "0.3.1"
 }
