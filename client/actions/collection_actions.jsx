@@ -1,14 +1,24 @@
+// reflux
+CollectionActions = Reflux.createActions(['playersChanged']);
+
+// can also do something like:
+// CollectionActions = {};
+// CollectionActions.playersChanged = Reflux.createAction();
+
+
+// original
+
 // IMPORTANT, see both/models/player.jsx to see where this action
 // is being triggered on the collection data change
 
-class CollectionActions {
-  playersChanged(docs) {
-    console.log('[CollectionActions] PLAYERS_CHANGED', docs);
-    this.dispatch(docs);
-  }
-}
-
-this.CollectionActions = alt.createActions(CollectionActions);
+// class CollectionActions {
+//   playersChanged(docs) {
+//     console.log('[CollectionActions] PLAYERS_CHANGED', docs);
+//     this.dispatch(docs);
+//   }
+// }
+//
+// this.CollectionActions = alt.createActions(CollectionActions);
 
 
 // NOTE, if your actions are only passing data through (like above)

@@ -5,15 +5,18 @@
 AppContainer = React.createClass({
   // you can also use mixins to eliminate this boilerplate
   getInitialState() {
-    return PlayerStore.getState();
+    //return PlayerStore.getState();
+    return PlayerStore.getInitialState();
   },
 
   componentDidMount() {
-    PlayerStore.listen(this.onChange);
+    //PlayerStore.listen(this.onChange);
+    this.unlisten = PlayerStore.listen(this.onChange);
   },
 
   componentWillUnmount() {
-    PlayerStore.unlisten(this.onChange);
+    //PlayerStore.unlisten(this.onChange);
+    this.unlisten();
   },
 
   onChange(state) {

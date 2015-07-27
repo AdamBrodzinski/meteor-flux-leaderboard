@@ -1,5 +1,7 @@
+This is a forked version of: [https://github.com/AdamBrodzinski/meteor-flux-leaderboard](https://github.com/AdamBrodzinski/meteor-flux-leaderboard) and has converted to use [Reflux](https://github.com/spoike/refluxjs) instead of Alt. Everything below this is from the original README.
+
 # meteor-flux-leaderboard
-Flux Example with React &amp; Meteor 
+Flux Example with React &amp; Meteor
 
 ***Get the benifits of Relay without the wait or complexity***
 
@@ -42,7 +44,7 @@ Flux Example with React &amp; Meteor
 
 
 <br>
-### Todo 
+### Todo
 
 - [X] Basic functinality
 - [ ] Handle hot code reload (snapshot and restore on reload)
@@ -55,16 +57,16 @@ Key pieces are in CollectionActions/Store, Tracker watches for changes on the Mi
 ```
  Tracker.autorun(computation => {
     var docs = Players.find({}).fetch();
-    
+
     if (computation.firstRun) return; // ignore first empty run
-    
+
     this.CollectionActions.playersChanged(docs);
   });
 ```
 
 ### Alt perks
 
-Alt lets you take snapshots of your apps state and can undo/redo state as needed. You can use this to capture your app state on an error then send log it for debugging remotely. 
+Alt lets you take snapshots of your apps state and can undo/redo state as needed. You can use this to capture your app state on an error then send log it for debugging remotely.
 
 A chrome extension is availible to help with local debugging:  
 https://www.youtube.com/watch?v=LUksOCuRjkE
