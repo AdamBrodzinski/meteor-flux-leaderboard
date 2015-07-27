@@ -18,6 +18,10 @@ Flux Example with React &amp; Meteor
 - Easy microservice implementations via DDP
 - Modular, swap out any default Meteor components you wish
 
+### Different Flux exmpales
+- Alt: master branch
+- Reflux: [reflux-example](https://github.com/AdamBrodzinski/meteor-flux-leaderboard/tree/reflux-example) branch
+
 <br>
 ***Make sure to open the console to see the lifecycle***  
 
@@ -64,3 +68,8 @@ Alt lets you take snapshots of your apps state and can undo/redo state as needed
 
 A chrome extension is availible to help with local debugging:  
 https://www.youtube.com/watch?v=LUksOCuRjkE
+
+
+### Contributors:
+
+- [donaldaverill](https://github.com/donaldaverill)
