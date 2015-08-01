@@ -18,7 +18,7 @@ Flux Example with React &amp; Meteor
 - Easy microservice implementations via DDP
 - Modular, swap out any default Meteor components you wish
 
-### Different Flux exmpales
+### Different Flux examples
 - Alt: master branch
 - Reflux: [reflux-example](https://github.com/AdamBrodzinski/meteor-flux-leaderboard/tree/reflux-example) branch
 
