@@ -51,6 +51,7 @@ reload@1.1.3
 retry@1.0.3
 routepolicy@1.0.5
 session@1.1.0
+skinnygeek1010:flux-helpers@0.1.0
 spacebars@1.0.6
 spacebars-compiler@1.0.6
 templating@1.1.1

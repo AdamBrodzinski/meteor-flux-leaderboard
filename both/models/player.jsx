@@ -8,33 +8,25 @@
 // to publish data and subscribe to pull it into this cache
 Players = new Mongo.Collection("players");
 
-
-if (Meteor.isClient) {
-  // watch collections on Minimongo cache and trigger action on change
-  Meteor.startup(() => {
-
-    Tracker.autorun(computation => {
-      var docs = Players.find({}).fetch();
-      if (computation.firstRun) return; // ignore first empty run
-      console.log('\n[Tracker] collection changed');
-      this.CollectionActions.playersChanged(docs);
-    });
-
-  });
-}
+Meteor.startup(function() { // work around files not being defined yet
+  if (Meteor.isClient) { // work around not having actions in /both folder
+    // trigger action when this changes
+    trackCollection(Players, CollectionActions.playersChanged);
+  }
+});
 
 
 Player = {
   create() {
-  },
-
-  read() {
+    // Players.insert(...)
   },
 
   update() {
+    // Players.update(...)
   },
 
   destroy() {
+    // Players.remove(...)
   },
 
   findLeaders() {
