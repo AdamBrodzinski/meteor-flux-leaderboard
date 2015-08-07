@@ -33,7 +33,7 @@ Flux Example with React &amp; Meteor
 
 ##### Full Readme coming soon! (See [this readme](https://github.com/AdamBrodzinski/react-ive-meteor) for an explanation of the Meteor parts)
 
-### Useage
+### Usage
 
 - `cd meteor-flux-leaderboard`
 - `meteor`
