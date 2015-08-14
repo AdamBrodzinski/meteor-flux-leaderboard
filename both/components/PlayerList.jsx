@@ -5,6 +5,7 @@ PlayerList = React.createClass({
   },
 
   render() {
+    /* SSR never runs
     if (!this.props.players.length) {
       return (
         <ul className="leaderboard">
@@ -13,6 +14,7 @@ PlayerList = React.createClass({
         </ul>
       );
     }
+    */
 
     return (
      <ul className="leaderboard">

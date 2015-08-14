@@ -2,6 +2,8 @@
 
 class PlayerStore {
   constructor() {
+    console.log('[PlayerStore] subscribing to "players"');
+    Meteor.subscribe('players'); // this could go in the AppContainer instead
     // listen to actions and call store methods when dispatcher emits action
     this.bindListeners({
       onSelectPlayer: PlayerActions.selectPlayer,
@@ -14,9 +16,6 @@ class PlayerStore {
       selectedId: '',
       selectedPlayerName: ''
     };
-
-    console.log('[PlayerStore] subscribing to "players"');
-    Meteor.subscribe('players'); // this could go in the AppContainer instead
   }
 
   onIncrementScore(docId) {
