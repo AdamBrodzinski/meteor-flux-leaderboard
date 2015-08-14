@@ -6,6 +6,7 @@
 // that the UI uses (selected id,name) and one for data (coming from Mongo)
 
 let { incrementScore, selectPlayer, playersChanged } = Actions;
+Reducers = {};
 
 let initialInterfaceState = {
   selectedId: '',
@@ -14,8 +15,8 @@ let initialInterfaceState = {
 
 // these reducers *must* be pure to use time-travel dev-tools
 
-function userInterface(state, action) {
-  let state = state || initialInterfaceState;
+Reducers.userInterface = function userInterface(state, action) {
+  state = state || initialInterfaceState;
 
   switch (action.type) {
     case 'CHANGE_NAME':
@@ -29,7 +30,7 @@ function userInterface(state, action) {
 
 // using the ES6 default params instead of the manual check like above
 
-function players(state = [], action) {
+Reducers.players = function players(state = [], action) {
   switch (action.type) {
     case 'INCREMENT_SCORE':
       return state;
