@@ -14,3 +14,7 @@ meteorhacks:npm
 npm-container
 cosmos:browserify
 promise
+skinnygeek1010:flux-helpers
+shockitv:alt-flux
+kadira:react-layout
+kadira:flow-router-ssr
