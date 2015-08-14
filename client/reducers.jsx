@@ -39,6 +39,9 @@ Reducers.userInterface = function userInterface(state, action) {
 Reducers.players = function players(state = [], action) {
   switch (action.type) {
     case 'INCREMENT_SCORE':
+      // we're returning old state because the flux helper will call
+      // a new action (playersChanged) when the data is updated this prev.
+      // the UI from rendering twice for the same change
       return state;
     default:
       return state;

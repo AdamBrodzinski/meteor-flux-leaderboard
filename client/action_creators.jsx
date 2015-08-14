@@ -14,11 +14,13 @@ Actions.playersChanged = function playersChanged(payload) {
 };
 
 
-Actions.incrementScore = function incrementScore() {
+Actions.incrementScore = function incrementScore(playerId) {
   console.log('\n[Actions] INCREMENT_SCORE');
-  return {
-    type: 'INCREMENT_SCORE'
-  };
+  // TODO call FAILED action on error
+  Players.update({_id: playerId}, {$inc: {score: 5}});
+  // don't return result because our collection watcher will
+  // send a CHANGED action and update the store
+  return { type: 'INCREMENT_SCORE' };
 };
 
 
