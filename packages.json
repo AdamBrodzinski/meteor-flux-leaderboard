@@ -1,6 +1,5 @@
 {
   "externalify": "0.1.0",
-  "alt": "0.17.1",
   "redux": "1.0.0",
   "react-redux": "0.8.2"
 }

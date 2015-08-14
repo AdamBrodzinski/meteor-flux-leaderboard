@@ -1,16 +1,5 @@
 {
   "dependencies": {
-    "alt": {
-      "version": "0.17.1",
-      "dependencies": {
-        "flux": {
-          "version": "2.0.3"
-        },
-        "transmitter": {
-          "version": "1.0.2"
-        }
-      }
-    },
     "externalify": {
       "version": "0.1.0",
       "dependencies": {
