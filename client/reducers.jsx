@@ -24,17 +24,12 @@ Reducers.userInterface = function userInterface(state, action) {
   state = state || initialInterfaceState;
 
   switch (action.type) {
-    case 'CHANGE_NAME':
-      return state;
-
     case 'SELECT_PLAYER':
       return merge(state, {
         selectedId: action.playerId,
         selectedPlayerName: action.playerName
       });
-
     default:
-      debugger
       return state;
   }
 }
