@@ -23,9 +23,13 @@ Actions.incrementScore = function incrementScore() {
 
 
 Actions.selectPlayer = function selectPlayer(playerId) {
-  console.log('\n[Actions] SELECT_PLAYER', playerId);
+  let player = Players.findOne(playerId);
+  let playerName = player.name || "N/A";
+
+  console.log('\n[Actions] SELECT_PLAYER', playerId, player,name);
   return {
     type: 'SELECT_PLAYER',
-    playerId: playerId
+    playerId: playerId,
+    playerName: playerName
   };
 };
