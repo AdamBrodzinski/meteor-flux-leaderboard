@@ -13,6 +13,11 @@ let initialInterfaceState = {
   selectedPlayerName: ''
 }
 
+// helper to *copy* old state and merge new data with it
+function merge(oldState, newState) {
+  return _.extend({}, oldState, newState);
+}
+
 // these reducers *must* be pure to use time-travel dev-tools
 
 Reducers.userInterface = function userInterface(state, action) {
@@ -21,9 +26,15 @@ Reducers.userInterface = function userInterface(state, action) {
   switch (action.type) {
     case 'CHANGE_NAME':
       return state;
+
     case 'SELECT_PLAYER':
-      return state;
+      return merge(state, {
+        selectedId: action.playerId,
+        selectedPlayerName: action.playerName
+      });
+
     default:
+      debugger
       return state;
   }
 }
