@@ -6,10 +6,11 @@
 Actions = {};
 
 // used when a mongo players collection changes
-Actions.playersChanged = function playersChanged(payload) {
-  console.log('[Actions] PLAYERS_CHANGED', payload);
+Actions.playersChanged = function playersChanged(newDocs) {
+  console.log('[Actions] PLAYERS_CHANGED', newDocs);
   return {
-    type: 'PLAYERS_CHANGED'
+    type: 'PLAYERS_CHANGED',
+    collection: newDocs
   };
 };
 

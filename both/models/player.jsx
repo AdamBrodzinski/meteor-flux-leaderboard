@@ -11,7 +11,11 @@ Players = new Mongo.Collection("players");
 Meteor.startup(function() { // work around files not being defined yet
   if (Meteor.isClient) { // work around not having actions in /both folder
     // trigger action when this changes
-    trackCollection(Players, CollectionActions.playersChanged);
+    trackCollection(Players, function(data) {
+      // call both until we can remove Alt
+      CollectionActions.playersChanged(data)
+      store.dispatch(Actions.playersChanged(data));
+    });
   }
 });
 

@@ -19,12 +19,15 @@ function merge(oldState, newState) {
 }
 
 // these reducers *must* be pure to use time-travel dev-tools
+// never directly mutate the `state` param, use merge instead
 
 Reducers.userInterface = function userInterface(state, action) {
   state = state || initialInterfaceState;
 
   switch (action.type) {
     case 'SELECT_PLAYER':
+      // we happen to be replacing all the reducers state but with merge you
+      // could just return the selectedId and it would retain selectedPlayerName
       return merge(state, {
         selectedId: action.playerId,
         selectedPlayerName: action.playerName
@@ -43,6 +46,10 @@ Reducers.players = function players(state = [], action) {
       // a new action (playersChanged) when the data is updated this prev.
       // the UI from rendering twice for the same change
       return state;
+    case 'PLAYERS_CHANGED':
+      // we don't have to merge the single doc that changes since minimongo
+      // keeps the entire cache for us. We'll just return the new state instead
+      return action.collection;
     default:
       return state;
   }
