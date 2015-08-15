@@ -44,12 +44,14 @@ Reducers.players = function players(state = [], action) {
     case 'INCREMENT_SCORE':
       // we're returning old state because the flux helper will call
       // a new action (playersChanged) when the data is updated this prev.
-      // the UI from rendering twice for the same change
+      // returning old state keeps the UI from rendering twice
       return state;
-    case 'PLAYERS_CHANGED':
+    case 'PLAYERS_COLLECTION_CHANGED':
       // we don't have to merge the single doc that changes since minimongo
       // keeps the entire cache for us. We'll just return the new state instead
-      return action.collection;
+      // we could return a fetch if sorting wasn't so easy
+      let docs = _.clone(action.collection);
+      return docs.sort((a,b) => b.score - a.score);
     default:
       return state;
   }

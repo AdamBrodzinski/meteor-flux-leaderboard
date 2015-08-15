@@ -8,7 +8,7 @@ Actions = {};
 // used when a mongo players collection changes
 Actions.playersChanged = function playersChanged(newDocs) {
   return {
-    type: 'PLAYERS_CHANGED',
+    type: 'PLAYERS_COLLECTION_CHANGED',
     collection: newDocs
   };
 };
