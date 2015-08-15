@@ -7,7 +7,6 @@ Actions = {};
 
 // used when a mongo players collection changes
 Actions.playersChanged = function playersChanged(newDocs) {
-  console.log('[Actions] PLAYERS_CHANGED', newDocs);
   return {
     type: 'PLAYERS_CHANGED',
     collection: newDocs
@@ -15,12 +14,11 @@ Actions.playersChanged = function playersChanged(newDocs) {
 };
 
 
+// doesn't return payload because our collection watcher
+// will send a CHANGED action and update the store
 Actions.incrementScore = function incrementScore(playerId) {
-  console.log('\n[Actions] INCREMENT_SCORE');
-  // TODO call FAILED action on error
   Players.update({_id: playerId}, {$inc: {score: 5}});
-  // don't return result because our collection watcher will
-  // send a CHANGED action and update the store
+  // TODO call FAILED action on error
   return { type: 'INCREMENT_SCORE' };
 };
 
@@ -29,7 +27,6 @@ Actions.selectPlayer = function selectPlayer(playerId) {
   let player = Players.findOne(playerId);
   let playerName = player.name || "N/A";
 
-  console.log('\n[Actions] SELECT_PLAYER', playerId, player,name);
   return {
     type: 'SELECT_PLAYER',
     playerId: playerId,

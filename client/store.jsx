@@ -1,4 +1,4 @@
-let { createStore, combineReducers } = Redux;
+let { createStore, combineReducers, applyMiddleware } = Redux;
 
 // Redux has a single store. to reduce complexity it allows you to combine
 // several 'reducer' functions that share this single state object.
@@ -22,4 +22,10 @@ let rootReducer = combineReducers({
   players: Reducers.players,
 });
 
-store = createStore(rootReducer);
+
+// applyMiddleware takes createStore() and returns a new wrapped createStore
+// note, this is an optional step to use middleware (we're auto console.log dispatches)
+let createStoreWithMiddleware = applyMiddleware(logger)(createStore);
+
+
+store = createStoreWithMiddleware(rootReducer);
