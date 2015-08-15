@@ -6,7 +6,7 @@ Flux Example with React &amp; Meteor
 Please read the fantastic Redux guide before/after diving into this. At first it may seem very complex
 but it turns out to be very simple once you understand the reducer flow.
 
-###### [Redux Guide](http://rackt.github.io/redux/index.html)
+**[Redux Guide](http://rackt.github.io/redux/index.html)**
 
 Basic gist (from Redux guide):
 
@@ -57,7 +57,7 @@ store.dispatch({ type: 'DECREMENT' });
 and to hook it up to a React component you just use `connect`
 
 
-```
+```javascript
 let AppContainer = React.createClass({
   render() {
     return (<App {...this.props} />);
