@@ -1,48 +1,92 @@
 # meteor-flux-leaderboard
-Flux Example with React &amp; Meteor 
+Flux Example with React &amp; Meteor
 
-***Get the benifits of Relay without the wait or complexity***
+## Redux Example
 
-- Automatic optimistic UI updates (latency compensation)
-- Real time database updates (like Uber's realtime driver location)
-- Mini-Mongo client cache (easy clientside querying)
-- Query based data subscriptions instead of REST (also API REST supported)
-- Data operations in flux are written synchronously because of the optimistic UI
+Please read the fantastic Redux guide before/after diving into this. At first it may seem very complex
+but it turns out to be very simple once you understand the reducer flow.
+
+###### [Redux Guide](http://rackt.github.io/redux/index.html)
+
+Basic gist (from Redux guide):
+
+```javascript
+import { createStore } from 'redux';
+
+/**
+ * This is a reducer, a pure function with (state, action) => state signature.
+ * It describes how an action transforms the state into the next state.
+ *
+ * The shape of the state is up to you: it can be a primitive, an array, an object,
+ * or even an Immutable.js data structure. The only important part is you should
+ * return a new object if the state changes, instead of mutating the parameter.
+ *
+ * In this example, we use a `switch` statement and strings, but you can use a helper that
+ * follows a different convention (such as function maps) that makes sense for your project.
+ */
+function counter(state = 0, action) {
+  switch (action.type) {
+  case 'INCREMENT':
+    return state + 1;
+  case 'DECREMENT':
+    return state - 1;
+  default:
+    return state;
+  }
+}
+
+// Create a Redux store that holds the state of your app.
+// Its API is { subscribe, dispatch, getState }.
+let store = createStore(counter);
+
+// You can subscribe to the updates manually, or use bindings to your view layer.
+store.subscribe(() =>
+  console.log(store.getState())
+);
+
+// The only way to mutate the internal state is to dispatch an action.
+// The actions can be serialized, logged or stored and later replayed.
+store.dispatch({ type: 'INCREMENT' });
+// 1
+store.dispatch({ type: 'INCREMENT' });
+// 2
+store.dispatch({ type: 'DECREMENT' });
+// 1
+```
+
+and to hook it up to a React component you just use `connect`
 
 
-*Plus*
+```
+let AppContainer = React.createClass({
+  render() {
+    return (<App {...this.props} />);
+  }
+});
 
-- Hot code reload
-- Universal JS shared on client and server (isomorphic)
-- Clean server-side code with fibers (soon with promise ES7 async/await)
-- Easy microservice implementations via DDP
-- Modular, swap out any default Meteor components you wish
+// choose what slice of state we send to the component & it's children
+function mapStateToProps(state) {
+  return {
+    players: state.players,
+    selectedId: state.userInterface.selectedId,
+  };
+}
 
-### Different Flux examples
-- Alt: master branch
-- Reflux: [reflux-example](https://github.com/AdamBrodzinski/meteor-flux-leaderboard/tree/reflux-example) branch
+this.AppContainer = connect(mapStateToProps)(AppContainer);
+```
 
-<br>
-***Make sure to open the console to see the lifecycle***  
-
-![logs](https://s3.amazonaws.com/f.cl.ly/items/42211v2N2K2Z0n0W0Z3o/logs.png)
-
-
-![Example Photo](https://s3.amazonaws.com/f.cl.ly/items/0Q181k182k0Z2C3g0Q04/screen2.png)
-
-
-##### Full Readme coming soon! (See [this readme](https://github.com/AdamBrodzinski/react-ive-meteor) for an explanation of the Meteor parts)
 
 ### Useage
 
 - `cd meteor-flux-leaderboard`
+- `git checkout redux`
 - `meteor`
 - Open your browser to localhost:3000
 - Checkout action/store logs in console after clicking about
 
 
 <br>
-### Todo 
+### Todo
 
 - [X] Basic functinality
 - [ ] Handle hot code reload (snapshot and restore on reload)
@@ -55,21 +99,9 @@ Key pieces are in CollectionActions/Store, Tracker watches for changes on the Mi
 ```
  Tracker.autorun(computation => {
     var docs = Players.find({}).fetch();
-    
+
     if (computation.firstRun) return; // ignore first empty run
-    
+
     this.CollectionActions.playersChanged(docs);
   });
 ```
-
-### Alt perks
-
-Alt lets you take snapshots of your apps state and can undo/redo state as needed. You can use this to capture your app state on an error then send log it for debugging remotely. 
-
-A chrome extension is availible to help with local debugging:  
-https://www.youtube.com/watch?v=LUksOCuRjkE
-
-
-### Contributors:
-
-- [donaldaverill](https://github.com/donaldaverill)
