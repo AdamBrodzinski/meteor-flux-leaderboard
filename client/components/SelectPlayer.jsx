@@ -5,7 +5,7 @@ SelectPlayer = React.createClass({
   },
 
   handleClick() {
-    PlayerActions.incrementScore(this.props.selectedId);
+    store.dispatch(Actions.incrementScore(this.props.selectedId));
   },
 
   render() {

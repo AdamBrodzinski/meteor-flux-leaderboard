@@ -1,7 +1,7 @@
 PlayerItem = React.createClass({
   handleClick() {
     var playerId = this.props.player._id;
-    PlayerActions.selectPlayer(playerId);
+    store.dispatch(Actions.selectPlayer(playerId));
   },
 
   getClassName() {
