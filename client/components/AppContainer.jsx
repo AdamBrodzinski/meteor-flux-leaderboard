@@ -2,14 +2,15 @@
 // listening for changes. In a larger app you would have a container
 // for each major component.
 
-AppContainer = React.createClass({
-  getInitialState() {
-    return {
-      players: [],
-      selectedId: '',
-      selectedPlayerName: ''
-    }
+let AppContainer = React.createClass({
+  componentWillMount() {
+    this.sub = Meteor.subscribe('players');
   },
+
+  componentWillUnmount() {
+    this.sub.stop();
+  },
+
   render() {
     //debugger // checkout this.props with debugger!
     return (<App {...this.props} />);
