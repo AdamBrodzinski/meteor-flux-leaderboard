@@ -42,15 +42,17 @@ Reducers.userInterface = function userInterface(state, action) {
 Reducers.players = function players(state = [], action) {
   switch (action.type) {
     case 'INCREMENT_SCORE':
-      // we're returning old state because the flux helper will call
-      // a new action (playersChanged) when the data is updated this prev.
-      // returning old state keeps the UI from rendering twice
+      // normally in redux you would update and merge state here but
+      // since have minimongo to do that for us we'll just wait for the
+      // flux-helper to fire a COLLECTION_CHANGED dispatch after the
+      // increment update. Since we're doing that we'll just return the old
+      // state to prevent the UI from re-rendering twice.
       return state;
     case 'PLAYERS_COLLECTION_CHANGED':
       // we don't have to merge the single doc that changes since minimongo
-      // keeps the entire cache for us. We'll just return the new state instead
-      // we could return a fetch if sorting wasn't so easy
-      let docs = _.clone(action.collection);
+      // keeps the entire cache for us. We'll just return the new minimongo state
+      // We *could* also return another fetch if sorting wasn't so easy here
+      let docs = _.clone(action.collection); // clone to prevent mutating action!!
       return docs.sort((a,b) => b.score - a.score);
     default:
       return state;
