@@ -20,7 +20,8 @@ Flux Example with React &amp; Meteor
 
 ### Different Flux examples
 - Alt: master branch
-- Reflux: [reflux-example](https://github.com/AdamBrodzinski/meteor-flux-leaderboard/tree/reflux-example) branch
+- Redux: [redux branch](https://github.com/AdamBrodzinski/meteor-flux-leaderboard/tree/redux)
+- Reflux: [reflux-branch](https://github.com/AdamBrodzinski/meteor-flux-leaderboard/tree/reflux-example) branch
 
 <br>
 ***Make sure to open the console to see the lifecycle***  
