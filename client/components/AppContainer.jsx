@@ -23,6 +23,7 @@ let AppContainer = React.createClass({
 // could easily just return `state` for this small app
 
 function mapStateToProps(state) {
+  console.log(state);
   return {
     players: state.players,
     selectedId: state.userInterface.selectedId,
