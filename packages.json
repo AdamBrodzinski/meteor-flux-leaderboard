@@ -1,5 +1,6 @@
 {
   "externalify": "0.1.0",
-  "redux": "1.0.0",
-  "react-redux": "0.8.2"
+  "redux": "1.0.1",
+  "react-redux": "0.9.0",
+  "redux-devtools": "1.1.1"
 }
