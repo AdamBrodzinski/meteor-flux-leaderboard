@@ -63,6 +63,12 @@ Key pieces are in CollectionActions/Store, Tracker watches for changes on the Mi
   });
 ```
 
+This is simplified by using a helper package, though I think it's important to know how it works.
+
+```
+trackCollection(Players, CollectionActions.playersChanged);
+```
+
 ### Alt perks
 
 Alt lets you take snapshots of your apps state and can undo/redo state as needed. You can use this to capture your app state on an error then send log it for debugging remotely. 
