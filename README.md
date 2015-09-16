@@ -1,4 +1,6 @@
-This is a forked version of: [https://github.com/AdamBrodzinski/meteor-flux-leaderboard](https://github.com/AdamBrodzinski/meteor-flux-leaderboard) and has converted to use [Reflux](https://github.com/spoike/refluxjs) instead of Alt. Everything below this is from the original README.
+This is a branch of: [https://github.com/AdamBrodzinski/meteor-flux-leaderboard](https://github.com/AdamBrodzinski/meteor-flux-leaderboard) and has converted to use [Reflux](http://rackt.github.io/redux/) instead of Alt. Everything below this is from the original README.
+
+For Webpack + Meteor see [Webpack-Meteor-React Boilerplate]](https://github.com/jedwards1211/meteor-webpack-react)
 
 # meteor-flux-leaderboard
 Flux Example with React &amp; Meteor
